@@ -1,42 +1,49 @@
 from  numpy import *
 import scipy.io
 from matplotlib import pyplot as plt
-
+from matplotlib.lines import Line2D
 
 def findClosestCentroids(X,centroids):
+    iter=10
     K = size(centroids, 0)
     jb=array(zeros((size(X,0),K)))
     idx=array(zeros((size(X,0),1)))
-    color=['b','g','r','c']
+    listcen=array(zeros((3*(iter),2)))
+    previous=array(zeros((3*(iter+1),2)))
 
+    color=['c','r','greenyellow','b']
+    previous[0:3,:]=array([
+	[3.0, 3.0],
+	[6.0, 2.0],
+	[8.0, 5.0]])
 
-    for i in range(10):
+    for j in range(iter):
 
-        for i in range(K):
-            sel=where(idx==i)
-            plt.scatter(X[sel[0],0],X[sel[0],1],color=color[i],marker="x")
+        plt.clf()
 
-        
-        plt.scatter(centroids[:,0], centroids[:,1],color='k',marker="^")
-        
-
-        for i in range(K):
-            plt.plot([centroids[i, 0], previous[i,0]],[centroids[i, 1], previous[i,1]])
-        
-     
         for i in range(K):
             jb[:,i]=sum(power((centroids[i,:]-X),2),axis=1)
 
         for i in range(size(X,0)):
             idx[i]=where(jb[i,:]==amin(jb[i,:],axis=0))
-            
-            
+
+        for i in range(K):
+            sel=where(idx==i)
+            plt.scatter(X[sel[0],0],X[sel[0],1],edgecolors=color[i+1],marker="o",facecolors='')      
+
+
+        listcen[(3*j):(3*j+3),:]=centroids
+        previous[(3*j+3):(3*j+6),:]=centroids
+
+        plt.scatter(listcen[0:(3*j+3),0], listcen[0:(3*j+3),1],color='k',marker="x")
+
+        plt.plot([listcen[0:(3*j+3), 0], previous[0:(3*j+3),0]],[listcen[0:(3*j+3), 1], previous[0:(3*j+3),1]],color='k')
         
         for i in range(K):  
             sel=where(idx==i)
             centroids[i,:]=mean(X[sel[0],:],0)
-        
-
-    plt.show()
-        
+            
+        plt.title("Iteration number %d" %(j+1))    
+        plt.savefig('it %d.jpeg' %(j+1))    
+        plt.show()
         
