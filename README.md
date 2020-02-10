@@ -6,4 +6,4 @@ centroids=array([
 	[8.0, 5.0]])
 	
 ## Results
-<img src="images/it%201.jpeg">
+<img src="images/it 1.jpeg">
