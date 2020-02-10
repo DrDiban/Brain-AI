@@ -6,3 +6,4 @@ centroids=array([
 	[8.0, 5.0]])
 	
 ## Results
+<img src="images/
