@@ -7,3 +7,21 @@ centroids=array([
 	
 ## Results
 <img src="Images/it 1.jpeg">
+
+<img src="Images/it 2.jpeg">
+
+<img src="Images/it 3.jpeg">
+
+<img src="Images/it 4.jpeg">
+
+<img src="Images/it 5.jpeg">
+
+<img src="Images/it 6.jpeg">
+
+<img src="Images/it 7.jpeg">
+
+<img src="Images/it 8.jpeg">
+
+<img src="Images/it 9.jpeg">
+
+<img src="Images/it 10.jpeg">
