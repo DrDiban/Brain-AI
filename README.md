@@ -1,4 +1,4 @@
-# Brain-AI
+# K-Means
 As per Coursera exercise the centroids are
 centroids=array([
 	[3.0, 3.0],
